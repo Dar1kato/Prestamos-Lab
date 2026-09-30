@@ -3,6 +3,9 @@ import heroImg from './assets/hero.png'
 import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import './App.css'
+import { equipos } from './data/equipos'
+import Catalogo from './components/Catalogo'
+
 
 function App() {
   const [count, setCount] = useState(0)
@@ -23,22 +26,11 @@ function App() {
           </p>
         </div>
 
-        <p>
-          El contador es de {count}
-        </p>
-
-        <button
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count + 1)}
-        > + </button>
-
-        <button 
-          type="button"
-          className="counter"
-          onClick={() => setCount((count) => count - 1)}
-        > - </button>
-
+        <main>
+          <h1>Laboratorio - prestamos</h1>
+          <Catalogo equipos={equipos}/>
+        </main>
+        
       </section>
     </>
   )
