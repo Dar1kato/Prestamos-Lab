@@ -5,10 +5,21 @@ import viteLogo from './assets/vite.svg'
 import './App.css'
 import { equipos } from './data/equipos'
 import Catalogo from './components/Catalogo'
+import Solicitud from './components/Solicitud'
 
 
 function App() {
   const [count, setCount] = useState(0)
+  const [prestamo, setPrestamo] = useState([])
+
+  const solicitar = (objeto) => {
+    setPrestamo((prestamoAnterior) => [...prestamoAnterior, objeto])
+  }
+
+  const eliminar = (objeto) => {
+    const newPrestamo = prestamo.filter((e) => e.id != objeto.id)
+    setPrestamo(newPrestamo)
+  }
 
   return (
     <>
@@ -28,7 +39,8 @@ function App() {
 
         <main>
           <h1>Laboratorio - prestamos</h1>
-          <Catalogo equipos={equipos}/>
+          <Solicitud prestamo={prestamo} eliminar={eliminar} />
+          <Catalogo equipos={equipos} solicitar={solicitar}/>
         </main>
         
       </section>

@@ -1,5 +1,5 @@
 
-const TarjetaEquipo = ({ equipo }) => {
+const TarjetaEquipo = ({ equipo, solicitar }) => {
     const { id, nombre, categoria, cantidad, disponible } = equipo
 
     return (
@@ -7,7 +7,7 @@ const TarjetaEquipo = ({ equipo }) => {
             <h3>{nombre}</h3>
             <p>{id} - {categoria}</p>
             <p>{disponible ? 'Disponible' : 'No Disponible'}</p>
-            <button type="button" disabled={!disponible}>
+            <button type="button" disabled={!disponible} onClick={() => solicitar(equipo)}>
                 {disponible ? 'Solicitar' : 'No Disponible'}
             </button>
         </article> 
