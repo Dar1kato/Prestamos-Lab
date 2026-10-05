@@ -2,6 +2,8 @@ import { useState } from "react";
 import TarjetaEquipo from "./TarjetaEquipo";
 
 const Catalogo = ({ equipos }) => {
+    console.log("Render Catalogo")
+
     const [soloDisponibles, setSoloDisponibles] = useState(false)
     const [busqueda, setBusqueda] = useState('')
 
@@ -18,6 +20,11 @@ const Catalogo = ({ equipos }) => {
             <p>{totalDisponibles} de {equipos.lenght} equipos disponibles</p>
 
             {/* TODO: Buscador y las tarjetas*/}
+            <div>
+                {visibles.map((e) => (
+                    <TarjetaEquipo key={e.id} equipo={e}/>
+                ))}
+            </div>
         </section>
     )
 }   
